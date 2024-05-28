@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Landing Page</title>
+    </h:head>
+    <f:metadata>
+        <f:metadata>
+            <f:viewParam name="id" value="#{propertyController.allocation.id}"/>
+            <f:viewAction action="#{propertyController.allocationRefresh}"/>
+            <f:viewAction action="#{propertyController.allocationRemoval}"/>
+        </f:metadata>
+    </f:metadata>
+    <h:body>
+        <f:view>
+            <h2 style="background-color:gray; color: white;">Property ID: <h:outputText value="#{propertyController.allocation.property.id}"/></h2><hr></hr>
+            <h:form>
+                <h:outputText value="#{propertyController.resultReturn}"></h:outputText>
+                <h4 style="text-indent: 30px;"><a href="./index.xhtml">Main Page</a></h4>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create manager</title>
+    </h:head>
+    <f:metadata>
+        <f:metadata>
+            <f:viewAction action="#{propertyController.resetObjects()}"/>
+        </f:metadata>
+    </f:metadata> 
+    <h:body>
+        <f:view>
+            <h2 style="background-color:gray; color: white;">Create a property manager</h2><hr></hr>
+            <h:form>
+                <h:panelGrid columns="3">
+			<h:outputLabel for="name">First Name:</h:outputLabel>
+                        <h:inputText id="firstName" size="20" value="#{propertyController.manager.firstName}"></h:inputText>
+			<br /><br />
+
+			<h:outputLabel for="name">Last Name:</h:outputLabel>
+			<h:inputText id="lastName" size="20" value="#{propertyController.manager.lastName}"></h:inputText>
+			<br /><br />
+                        
+			<h:outputLabel for="phone">Phone:</h:outputLabel>
+			<h:inputText id="phone" size="20" value="#{propertyController.manager.phone}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="mobile">Mobile:</h:outputLabel>
+                        <h:inputText id="mobile" size="20" value="#{propertyController.manager.mobile}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="email">Email:</h:outputLabel>
+			<h:inputText id="email" size="20" value="#{propertyController.manager.email}"></h:inputText>
+			<br /><br />
+                        
+                       
+                        <h:commandButton id="submit" value="Create" action="#{propertyController.doCreateManager()}"/>
+                                          
+		</h:panelGrid>
+                <hr></hr>
+                <h4 style="text-indent: 30px;"><h:commandLink value="List of property managers" action="#{propertyController.doToManagerList()}"/> | <a href="./index.xhtml">Main Page</a></h4>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

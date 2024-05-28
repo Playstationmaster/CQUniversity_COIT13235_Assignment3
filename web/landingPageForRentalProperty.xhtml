@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>List Properties</title>
+    </h:head>
+    <h:body>
+            <h2 style="background-color:gray; color: white;">The Current Rental Properties</h2><hr></hr>
+            <h4 style="text-indent: 30px;">Successfully created rental property:  <h:outputText value="#{propertyController.propertyForRent.streetNumber} #{propertyController.propertyForRent.streetName}, #{propertyController.propertyForRent.city}"/></h4>
+            <h:dataTable value="#{propertyController.rentPropertyList}" var="rp" border="1">
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="ID"/>
+                        </f:facet>
+                        <h:outputText value="#{rp.id}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="PropertyType"/>
+                        </f:facet>
+                        <h:outputText value="#{rp.propertyType}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="Location"/>
+                        </f:facet>
+                        <h:outputText value="#{rp.streetNumber} #{rp.streetName}, #{rp.city}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="Action"/>
+                        </f:facet>
+                        <!--<h:commandLink value="View Details" action="#{propertyController.doViewRentalPropertyDetails}"/>-->
+                        <h:outputLink value="rentalDetailPage.faces">View Details</h:outputLink>
+                    </h:column>
+                    
+                </h:dataTable>
+            
+                <h4>Total Rental Properties: <h:outputText value="#{propertyController.rentPropertyCount}"/></h4>
+                <hr></hr>
+                <h:form>
+                <h4 style="text-indent: 30px;"><h:commandLink value="Create a rental property" action="#{propertyController.doNewRent}"/> | <a href="./index.xhtml">Main Page</a></h4>
+                </h:form>   
+    </h:body>
+</html>

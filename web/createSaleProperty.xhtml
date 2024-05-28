@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create sale property</title>
+    </h:head>
+    <f:metadata>
+        <f:metadata>
+            <f:viewAction action="#{propertyController.resetObjects()}"/>
+        </f:metadata>
+    </f:metadata> 
+    <h:body>
+        <f:view>
+            <h2 style="background-color:gray; color: white;">Provide the Following Information for a Sale Property</h2><hr></hr>
+            <h:form>
+                <h:panelGrid columns="3">
+			<h:outputLabel for="type">Property Type:</h:outputLabel>
+			<h:inputText id="propertyType" size="20" value="#{propertyController.propertyForSale.propertyType}"></h:inputText>
+			<br /><br />
+
+			<h:outputLabel for="bedrooms">No. of Bedrooms:</h:outputLabel>
+			<h:inputText id="bedrooms" size="20" value="#{propertyController.propertyForSale.numberOfBedrooms}"></h:inputText>
+			<br /><br />
+                        
+			<h:outputLabel for="bathrooms">No. of Bathrooms:</h:outputLabel>
+			<h:inputText id="bathrooms" size="20" value="#{propertyController.propertyForSale.numberOfBathrooms}"></h:inputText>
+			<br /><br />
+                        
+			<h:outputLabel for="description">Property Description:</h:outputLabel>
+			<h:inputTextarea cols="17" rows="5" style="width:120" value="#{propertyController.propertyForSale.description}">
+			</h:inputTextarea>
+                        <br /><br />
+                        
+                        <h:outputLabel for="streetNumber">Street Number:</h:outputLabel>
+			<h:inputText id="streetNumber" size="20" value="#{propertyController.propertyForSale.streetNumber}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="streetName">Street Name:</h:outputLabel>
+			<h:inputText id="streetName" size="20" value="#{propertyController.propertyForSale.streetName}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="city">City:</h:outputLabel>
+			<h:inputText id="city" size="20" value="#{propertyController.propertyForSale.city}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="state">State:</h:outputLabel>
+			<h:inputText id="state" size="20" value="#{propertyController.propertyForSale.state}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="postcode">Postcode:</h:outputLabel>
+			<h:inputText id="postcode" size="20" value="#{propertyController.propertyForSale.postcode}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="country">Country:</h:outputLabel>
+			<h:inputText id="country" size="20" value="#{propertyController.propertyForSale.country}"></h:inputText>
+			<br /><br />
+                        
+                        <h:outputLabel for="rentCost">Sale Price:</h:outputLabel>
+                        <h:inputText id="rentCost" size="20" value="#{propertyController.propertyForSale.salePrice}"></h:inputText>
+			<br /><br />
+                        
+                        
+                        <h:commandButton id="submit" value="Create" action="#{propertyController.doCreateSaleProperty}"/>
+                                             
+		</h:panelGrid>
+                <hr></hr>
+                <h4 style="text-indent: 30px;"><h:commandLink value="List of sale properties" action="#{propertyController.doToSalePropertyList}"/> | <a href="index.xhtml">Main Page</a></h4>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

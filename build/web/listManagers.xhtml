@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>List managers</title>
+    </h:head>
+    <h:body>
+            <h2 style="background-color:gray; color: white;">The Current Property Mangers</h2><hr></hr>
+                          
+            <h:dataTable value="#{propertyController.managerList}" var="m" border="1">
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="ID"/>
+                        </f:facet>
+                        <h:outputText value="#{m.id}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="First Name"/>
+                        </f:facet>
+                        <h:outputText value="#{m.firstName}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="Last Name"/>
+                        </f:facet>
+                        <h:outputText value="#{m.lastName}"/>
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText style="width:100px" value="Action"/>
+                        </f:facet>
+                        <h:link outcome="managerDetailPage.xhtml?id=#{m.id}" value="view"/>
+                    </h:column>
+                </h:dataTable>
+            
+            <h4>Total Property Managers: <h:outputText value="#{propertyController.managerCount}"/></h4>
+            <hr></hr>
+            <h:form>
+            <h4 style="text-indent: 30px;"><h:commandLink value="Create a property manager" action="#{propertyController.doNewManager}"/> | <a href="index.xhtml">Main Page</a></h4>
+            </h:form>   
+    </h:body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Search Sale property</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h2 style="background-color:gray; color: white;">Search a Sale Property</h2><hr></hr>
+            <h:form>
+                <h:outputLabel for="search">Property ID: </h:outputLabel>
+		<h:inputText id="search" size="20" value="#{propertyController.requestedIndex}"></h:inputText>
+                <br /><br /><br />
+                        
+                <h:commandButton id="submit" value="Search" action="#{propertyController.doSearchSale}"/>
+                
+                <hr></hr>
+               <h:commandLink value="List of sale properties" action="#{propertyController.doToSalePropertyList}"/> | <h:commandLink action = "index?faces-redirect = true" value = "Main"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</xhtml>

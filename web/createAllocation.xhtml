@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create allocation</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h2 style="background-color:gray; color: white;">The Current Allocations</h2><hr></hr>
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputLabel for="manager">Property Manager: </h:outputLabel>
+                    <h:selectOneMenu value = "#{propertyController.requestedIndexSub}"> 
+                        <f:selectItems value = "#{propertyController.managerList}" var = "m" itemValue = "#{m.id}" itemLabel = "#{m.firstName} #{m.lastName}"/> 
+                    </h:selectOneMenu>
+                    <p></p>
+                
+                    <h:outputLabel for="sale">Sale Property: </h:outputLabel>
+                    <h:selectOneMenu value = "#{propertyController.handleIndex1}"> 
+                        <f:selectItems value = "#{propertyController.salePropertyList}" var = "sp" itemValue = "#{sp.id}" itemLabel = "#{sp.streetNumber} #{sp.streetName}"/> 
+                    </h:selectOneMenu> 
+                    <h:commandButton id="alc1" value="Allocate" action="#{propertyController.prepareAllocationSale}"/>
+                    
+                    <h:outputLabel for="rent">Rental Property: </h:outputLabel>
+                    <h:selectOneMenu value = "#{propertyController.handleIndex2}"> 
+                        <f:selectItems value = "#{propertyController.rentPropertyList}" var = "rp" itemValue = "#{rp.id}" itemLabel = "#{rp.streetNumber} #{rp.streetName}"/> 
+                    </h:selectOneMenu> 
+                    <h:commandButton id="alc2" value="Allocate" action="#{propertyController.prepareAllocationRent}"/>
+                    
+                    <h:outputLabel for="inRent">InRent Property: </h:outputLabel>
+                    <h:selectOneMenu value = "#{propertyController.handleIndex3}"> 
+                        <f:selectItems value = "#{propertyController.inRentPropertyList}" var = "irp" itemValue = "#{irp.id}" itemLabel = "#{irp.streetNumber} #{irp.streetName}"/> 
+                    </h:selectOneMenu> 
+                    <h:commandButton id="alc3" value="Allocate" action="#{propertyController.prepareAllocationInRent}"/>    
+                                             
+		</h:panelGrid>
+                <hr></hr>
+                <h4 style="text-indent: 30px;"><a href="listAllocations.faces">List all allocations</a> | <a href = "./index.faces">Main Page</a></h4>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>

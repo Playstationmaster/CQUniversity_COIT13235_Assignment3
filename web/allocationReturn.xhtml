@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>List Properties</title>
+    </h:head>
+    <h:body>
+            <h2 style="background-color:gray; color: white;">The Current allocations</h2><hr></hr>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Manager</th>
+                    <th>Property</th>
+                    <th>Created date</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><h:outputText value="#{propertyController.allocation.id}"/></td>
+                    <td><h:link outcome="managerDetailPage.xhtml?id=#{propertyController.allocation.manager.id}" value="#{propertyController.allocation.manager.firstName} #{propertyController.allocation.manager.lastName}"/></td>
+                    <td><h:link outcome="propBriefDescription.xhtml?id=#{propertyController.allocation.id}" value="#{propertyController.allocation.property.streetNumber} #{propertyController.allocation.property.streetName}, #{propertyController.allocation.property.city}"/></td>
+                    <td><h:outputText value="#{propertyController.allocation.creationDate}"/></td>
+                    <td><h:link outcome="allocationDelete.xhtml?id=#{propertyController.allocation.id}" value="Delete"/></td>
+                </tr>
+            </table>
+            
+        <hr></hr>
+        <h:form>
+        <h4 style="text-indent: 30px;"><h:commandLink value="Create a new allocation" action="#{propertyController.doNewAllocation}"/> | <a href="./index.xhtml">Main Page</a></h4>
+        </h:form>
+        
+    </h:body>
+</html>
